@@ -139,8 +139,8 @@ $image-height: calc(100vw * (282/1280));
                 transform-origin: 0 0; /* 右上を回転軸とする */
                 transform: rotate(90deg) translateY(-5px); /* 90度時計回りに回転 */
                 line-height: 1em;
-                font-size: 13px;
-                font-weight: 500;
+                font-size: 16px;
+                font-weight: 600;
             }
         }
     }

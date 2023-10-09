@@ -35,20 +35,19 @@ export default function Home() {
   if (!listInner) return;
 
   // Calculate total width of the items
-  // const totalWidth = list.reduce((acc, item) => acc + item.clientWidth, 0);
-  const totalWidth = list.clientWidth;
+  const totalWidth = list.reduce((acc, item) => acc + item.clientWidth, 0);
   console.log(totalWidth)
-  // listInner.style.width = `${totalWidth}px`;
+  listInner.style.width = `${totalWidth}px`;
 
   gsap.to(listInner, {
-    x: () => -(totalWidth - window.innerWidth),
+    x: () => -(totalWidth),
     ease: "none",
     scrollTrigger: {
       trigger: ".js-container",
       pin: true,
       scrub: 0.5,
       start: "top top",
-      end: () => `+=${totalWidth - window.innerWidth}`
+      end: 5000
     }
   });
 }, []);
@@ -141,8 +140,8 @@ export default function Home() {
                           <Image
                             src={artPiece.image[0]}
                             alt="artPiece"
-                            width={300}
-                            height={300}
+                            width={800}
+                            height={800}
                             // className={aspectRatioClass}
                           />
                         </div>

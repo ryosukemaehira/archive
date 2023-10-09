@@ -103,22 +103,25 @@
     height: 100%;
     object-fit: cover;
 }
-
+$scale: 1.8;
 .top_artImage.aspect-ratio-1-1  {
-    width: 216px;
+    width: calc(216/1280 * 100vw * #{$scale});
 }
 .top_artImage.aspect-ratio-4-3  {
-    width: 248px;
+    width: calc(248/1280 * 100vw * #{$scale});
 }
 .top_artImage.aspect-ratio-16-9  {
-    width: 287px;
+    width: calc(287/1280 * 100vw * #{$scale});
 }
 .top_artImage.aspect-ratio-235-1  {
-    width: 331px;
+    width: calc(331/1280 * 100vw * #{$scale});
+    // width: 331px;
 }
 .top_artImage.aspect-ratio-3-4  {
-    width: 186px;
+    width: calc(186/1280 * 100vw * #{$scale});
+    // width: 186px;
 }
 .top_artImage.aspect-ratio-9-16  {
-    width: 161px;
+    width: calc(161/1280 * 100vw * #{$scale});
+    // width: 161px;
 }
