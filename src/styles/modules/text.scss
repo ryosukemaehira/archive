@@ -1,0 +1,28 @@
+// google fonts import Karma
+@import url('https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&display=swap');
+// import Inter from Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.t-global-text-style {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 100%; // 16px default
+    color: #000000;
+    letter-spacing: 0;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .t-en {
+    font-family: serif;
+    font-family: 'Helvetica Now Text';
+  }
+  
+  .t-jp {
+    font-family: serif;
+    font-family: 'Helvetica Now Text';
+  }
+  
+  .t-size-larger {
+    font-size: 2rem;
+  }
+  

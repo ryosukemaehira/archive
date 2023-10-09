@@ -1,0 +1,43 @@
+//レイアウト系
+/* ブレイクポイントと連動している container の幅になる。 */
+$contents-width-xs: 400px;
+$contents-width-sm: 768px;
+$contents-width-md: calc((1040/1280)*100vw);
+$contents-width-lg: 1280px;
+$contents-width-xl: 1480px;
+
+$breakpoint-xs-up: $contents-width-xs + 1;
+$breakpoint-sm-up: $contents-width-sm + 1;
+$breakpoint-md-up: $contents-width-md + 1;
+$breakpoint-lg-up: $contents-width-lg + 1;
+$breakpoint-xl-up: $contents-width-xl + 1;
+
+$map-breakpoint-up: (
+  'xs': 'screen and (min-width: #{$breakpoint-xs-up})',
+  'sm': 'screen and (min-width: #{$breakpoint-sm-up})',
+  'md': 'screen and (min-width: #{$breakpoint-md-up})',
+  'lg': 'screen and (min-width: #{$breakpoint-lg-up})',
+  'xl': 'screen and (min-width: #{$breakpoint-xl-up})',
+  ) !default;
+
+$map-breakpoint-down: (
+  'xs': 'screen and (max-width: #{$contents-width-xs})',
+  'sm': 'screen and (max-width: #{$contents-width-sm})',
+  'md': 'screen and (max-width: #{$contents-width-md})',
+  'lg': 'screen and (max-width: #{$contents-width-lg})',
+  'xl': 'screen and (max-width: #{$contents-width-xl})',
+  ) !default;
+
+@mixin mq-up($breakpoint: md) {
+  /* 引数無しのデフォルトでは md をブレイクポイントとする（ここはケースバイケースで使用頻度の高いものに入れ替える） */
+  @media #{map-get($map-breakpoint-up, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mq-down($breakpoint: md) {
+  /* 引数無しのデフォルトでは md をブレイクポイントとする（ここはケースバイケースで使用頻度の高いものに入れ替える） */
+  @media #{map-get($map-breakpoint-down, $breakpoint)} {
+    @content;
+  }
+}

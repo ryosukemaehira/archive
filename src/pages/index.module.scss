@@ -1,0 +1,147 @@
+@import '@/styles/base/breakpoints.scss';
+@import '@/styles/base/settings.scss';
+
+// このCSSが呼ばれているtsxファイル
+// Path: src/pages/index.tsx
+
+.container {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.container__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    .logo {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 170px;
+        height: auto;
+    }
+
+    .header__right {
+        position: absolute;
+        left: 50%;
+        right: 0;
+        top: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: start;
+    }
+
+
+    .description {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: start;
+        font-size: 10px;
+        line-height: 105%;
+        font-family: 'Karma', serif;
+        font-weight: 600;
+        .description__title {
+        font-size: 10px;
+        font-weight: bold;
+        margin-right: 30px;
+        }
+        .description__text {
+        font-size: 10px;
+        }
+    }
+}
+$image-width: calc(100vw * (762/1280));
+$image-height: calc(100vw * (282/1280));
+
+.copy {
+    position: absolute;
+    top: 50%;
+    left: 100vw;
+    transform: translate(calc(-20px - 2em), -12.5vw) rotate(90deg);
+    transform-origin: 0 0;
+    font-size: 10px;
+    line-height: 105%;
+    font-family: 'Karma', serif;
+    font-weight: 500;
+}
+
+.title {
+    width: $image-width;
+    height: $image-height;
+    // 親要素の左右中央に配置
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(calc(-1vw - #{$image-width}/2), calc(-2vw - #{$image-height}/2));
+    img {
+        height: 100%;
+    }
+}
+
+.featured {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    overflow: hidden; // 縦方向のスクロールを防ぐため
+
+    .featured__title {
+        position: absolute;
+        bottom: 80px;
+        left: 40px;
+        font-size: 40px;
+        text-align: right;
+        font-weight: 600;
+        line-height: 98%; /* 40.023px */
+        letter-spacing: -0.817px;
+        margin-right: 54px;
+    }
+    .featured__list {
+        // display: flex;
+        // flex-direction: row;
+        // align-items: flex-end;
+        // justify-content: flex-start;
+        width: 100%;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        scrollbar-width: none; // Firefox
+        &::-webkit-scrollbar {
+            display: none; // Chrome, Safari, Edge
+        }
+        .featured__list__inner {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: flex-start;
+            width: 100%;
+            padding-left: 260px;
+        }
+        .featured__item {
+            margin-right: 64px;
+            position: relative;
+            .featured__item__text {
+                position: absolute;
+                top: 0;
+                left: calc(100% + 2em);
+                transform-origin: 0 0; /* 右上を回転軸とする */
+                transform: rotate(90deg) translateY(-5px); /* 90度時計回りに回転 */
+                line-height: 1em;
+                font-size: 13px;
+                font-weight: 500;
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+$global-grid-square: 24px;
+
+$container-padding-x: calc(#{$global-grid-square} * 3);
+$grid-gutter: calc(#{$global-grid-square} * 2);
+
+:root {
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+
+  }
+}
+
+
+
+
+// ダークモード対応時に戻す
+
+// @media (prefers-color-scheme: dark) {
+//   html {
+//     color-scheme: dark;
+//   }
+// }

@@ -1,0 +1,124 @@
+@import '@/styles/base/settings.scss';
+
+/* アスペクト比 1:1 */
+.aspect-ratio-1-1 {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  overflow: hidden;
+}
+
+.aspect-ratio-1-1 img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* アスペクト比 4:3 */
+.aspect-ratio-4-3 {
+  position: relative;
+  width: 100%;
+  padding-bottom: 75%; /* 3/4 = 0.75 = 75% */
+  overflow: hidden;
+}
+
+.aspect-ratio-4-3 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* アスペクト比 16:9 */
+.aspect-ratio-16-9 {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 9/16 = 0.5625 = 56.25% */
+    overflow: hidden;
+}
+
+
+.aspect-ratio-16-9 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* アスペクト比 2.35:1 */
+.aspect-ratio-235-1 {
+    position: relative;
+    width: 100%;
+    padding-bottom: 42.55%; /* 1/2.35 = 0.4255 = 42.55% */
+    overflow: hidden;
+}
+
+.aspect-ratio-235-1 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* アスペクト比 3:4 */
+.aspect-ratio-3-4 {
+    position: relative;
+  width: 100%;
+  padding-bottom: 133.33%; /* 4/3 = 1.3333 = 133.33% */
+  overflow: hidden;
+}
+
+.aspect-ratio-3-4 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* アスペクト比 9:16 */
+.aspect-ratio-9-16 {
+    position: relative;
+    width: 100%;
+    padding-bottom: 177.78%; /* 16/9 = 1.7778 = 177.78% */
+    overflow: hidden;
+}
+
+
+.aspect-ratio-9-16 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.top_artImage.aspect-ratio-1-1  {
+    width: 216px;
+}
+.top_artImage.aspect-ratio-4-3  {
+    width: 248px;
+}
+.top_artImage.aspect-ratio-16-9  {
+    width: 287px;
+}
+.top_artImage.aspect-ratio-235-1  {
+    width: 331px;
+}
+.top_artImage.aspect-ratio-3-4  {
+    width: 186px;
+}
+.top_artImage.aspect-ratio-9-16  {
+    width: 161px;
+}
