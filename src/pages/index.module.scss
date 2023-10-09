@@ -142,7 +142,7 @@ $image-height: calc(100vw * (282/1280));
             // padding-left: 260px;
             position: fixed;
             left: 260px;
-            bottom: 0;
+            bottom: -70px;
             right: 0;
             z-index: 0;
         }
@@ -159,7 +159,7 @@ $image-height: calc(100vw * (282/1280));
                 transform-origin: 0 0; /* 右上を回転軸とする */
                 transform: rotate(90deg) translateY(-5px); /* 90度時計回りに回転 */
                 line-height: 1em;
-                font-size: 16px;
+                font-size: 11px;
                 font-weight: 600;
             }
         }
