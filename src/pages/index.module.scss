@@ -8,7 +8,7 @@
     position: relative;
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
+    // overflow: hidden;
     box-sizing: border-box;
     padding: 20px;
 }
@@ -20,10 +20,11 @@
 }
 
 .header {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    z-index: 2; 
     .logo {
         position: absolute;
         left: 0;
@@ -67,7 +68,7 @@ $image-width: calc(100vw * (762/1280));
 $image-height: calc(100vw * (282/1280));
 
 .copy {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 100vw;
     transform: translate(calc(-20px - 2em), -12.5vw) rotate(90deg);
@@ -91,12 +92,23 @@ $image-height: calc(100vw * (282/1280));
     }
 }
 
+.virtualScrollContainer {
+    height: calc(100vh + 100px); /* 仮想のスクロールエリアの高さを設定。 */
+    // &:hover {
+    //     background-color: red;
+    // }
+  width: 100%;
+  overflow-y: scroll;
+  position: relative;
+  z-index: 1000;
+}
+
 .featured {
     position: absolute;
-    bottom: 0;
+    // bottom: -150px;
     right: 0;
     left: 0;
-    overflow: hidden; // 縦方向のスクロールを防ぐため
+    // overflow: hidden; // 縦方向のスクロールを防ぐため
 
     .featured__title {
         position: absolute;
@@ -115,8 +127,8 @@ $image-height: calc(100vw * (282/1280));
         // align-items: flex-end;
         // justify-content: flex-start;
         width: 100%;
-        overflow-x: scroll;
-        overflow-y: hidden;
+        // overflow-x: scroll;
+        // overflow-y: hidden;
         scrollbar-width: none; // Firefox
         &::-webkit-scrollbar {
             display: none; // Chrome, Safari, Edge
@@ -127,11 +139,19 @@ $image-height: calc(100vw * (282/1280));
             align-items: flex-end;
             justify-content: flex-start;
             width: 100%;
-            padding-left: 260px;
+            // padding-left: 260px;
+            position: fixed;
+            left: 260px;
+            bottom: 0;
+            right: 0;
+            z-index: 0;
         }
         .featured__item {
             margin-right: 64px;
             position: relative;
+            .featured__item__image {
+                height: auto;
+            }
             .featured__item__text {
                 position: absolute;
                 top: 0;
