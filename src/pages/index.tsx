@@ -11,6 +11,56 @@ import { gsap } from 'gsap';
 
 export default function Home() {
 
+  // 要素の参照を作成
+  const sectionRef = useRef(null);
+  const listRef = useRef(null);
+  const titleRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const list = listRef.current;
+
+    // ウィンドウがスクロールされたときのイベントリスナーを追加
+    window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+
+        // sectionのアニメーション
+        const sectionMoveDistance = Math.min(scrollY * 0.2, 120);
+        gsap.to(section, {
+            y: -sectionMoveDistance,
+            ease: "power2.out",
+        });
+
+        // const opacityValue = 1 - (0.4 * (sectionMoveDistance / 120)); // 1から0.6のオパシティに変化
+        const titleScaleValue = 1 - (0.1 * (sectionMoveDistance / 120)); // 1から0.8のスケールに変化
+        gsap.to(titleRef.current, {
+            // opacity: opacityValue,
+            scale: titleScaleValue,
+            ease: "power2.out",
+        });
+
+        // listの拡大アニメーション
+        const scaleValue = 1 + (0.2 * (sectionMoveDistance / 120)); // 1から1.5のスケールに変化
+        gsap.to(list, {
+            scale: scaleValue,
+            transformOrigin: "left bottom",
+            ease: "power2.out",
+        });
+
+        // listの水平移動アニメーション
+        const maxListMoveDistance = (list.offsetWidth * scaleValue) - window.innerWidth + 260; // 拡大後の横幅を考慮
+        const listMoveDistance = Math.min(scrollY * 0.3, maxListMoveDistance);
+        gsap.to(list, {
+            x: -listMoveDistance,
+            ease: "power2.out",
+        });
+    });
+
+    return () => {
+        // イベントリスナーを削除
+        window.removeEventListener("scroll", handleScroll);
+    };
+}, []);
 
   function getAspectRatioClass(aspectRatio) {
     switch (aspectRatio) {
@@ -42,15 +92,16 @@ export default function Home() {
       
       <main className={`${styles.main} t-global-text-style`}>
         <div className={`${styles.container} js-container`}>
+          <div className={styles.container__bg}
+          ></div>
           <div className={styles.container__inner}>
-            {/* headerの中には、ロゴ、p.descriptionがあり、p.descriptionは小さなタイトルと説明がある */}
             <header className={styles.header}>
               <div className={styles.logo}>
                 <Image src="/images/logo.svg" alt="logo" width={170} height={22.5} />
               </div>
               <div className={styles.header__right}>
                 <p className={styles.description}>
-                  <span className={styles.description__title}>Welcome to</span>
+                  <span className={styles.description__title}>About this site</span>
                   <span className={styles.description__text}>
                     Murals, graffiti, and sculptures. <br />
                     Montreal is filled with various street art<br />
@@ -72,12 +123,9 @@ export default function Home() {
 
               </div>
             </header>
-            {/* h1の中にspanが1つある */}
-            <h1 className={styles.title}>
-              {/* ここはsvg画像を配置 */}
+            <h1 className={styles.title} ref={titleRef}>
               <Image src="/images/title.svg" alt="title" width={1200} height={500} />
             </h1>
-            {/* コピーライトなどの細かいテキストが画面の右側にposition:absolute で固定する。3行に開業→（version: 0.1.0 (beta) br last-updated: 12st, Oct 2023 br ©DigitalArchiveofStreatArtinMontreal） */}
             <p className={styles.copy}>
               <span className={styles.copy__text}>version: 0.1.0 (beta)</span>
               <br />
@@ -85,12 +133,14 @@ export default function Home() {
               <br />
               <span className={styles.copy__text}>©DigitalArchiveofStreatArtinMontreal</span>
             </p>
-            {/* sectionがある。sectionの中には、h2{Featured Pieces}と、横にスクロールできる画像に一覧が存在する。各種アイテムの画像の横には画像の内容の種類を説明するテキストと、画像が撮影された場所を表すテキスト要素が付随する */}
             <div className={styles.virtualScrollContainer}>
-              <section className={`${styles.featured} .section`}>
-                <h2 className={styles.featured__title}>Featured<br />Pieces</h2>
+              <section className={`${styles.featured} .section`} ref={sectionRef}>
+                <h2 className={styles.featured__title}>
+                  Featured<br />Pieces
+                  <span className={styles.featured__title__arrow}></span>
+                </h2>
                 <div className={`${styles.featured__list} js-scroll-list`}>
-                  <div className={`${styles.featured__list__inner} list`}>
+                  <div className={`${styles.featured__list__inner} list`} ref={listRef}>
                     {artPieces.map((artPiece, index) => {
                       const aspectRatioClass = getAspectRatioClass(artPiece.aspectRatio[0]);
                       return (
@@ -115,7 +165,6 @@ export default function Home() {
                   </div>
                 </div>
               </section>
-
             </div>
           </div>
         </div>

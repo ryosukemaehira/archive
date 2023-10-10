@@ -1,16 +1,16 @@
 @import '@/styles/base/breakpoints.scss';
 @import '@/styles/base/settings.scss';
 
-// このCSSが呼ばれているtsxファイル
-// Path: src/pages/index.tsx
 
 .container {
-    position: relative;
+    // position: fixed;
+    top: 0;
+    left: 0;
     height: 100vh;
     width: 100vw;
-    // overflow: hidden;
     box-sizing: border-box;
     padding: 20px;
+    // z-index: 0;
 }
 
 .container__inner {
@@ -19,10 +19,21 @@
     height: 100%;
 }
 
-.header {
+.container__bg {
     position: fixed;
     top: 0;
     left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/images/bg.jpg");
+    background-size: cover;
+    z-index: -1;
+}
+
+.header {
+    position: fixed;
+    top: 20px;
+    left: 20px;
     right: 0;
     z-index: 2; 
     .logo {
@@ -36,7 +47,7 @@
     .header__right {
         position: absolute;
         left: 50%;
-        right: 0;
+        right: 20px;
         top: 0;
         display: flex;
         flex-direction: row;
@@ -71,7 +82,7 @@ $image-height: calc(100vw * (282/1280));
     position: fixed;
     top: 50%;
     left: 100vw;
-    transform: translate(calc(-20px - 2em), -12.5vw) rotate(90deg);
+    transform: translate(-2em, -12.5vw) rotate(90deg);
     transform-origin: 0 0;
     font-size: 10px;
     line-height: 105%;
@@ -83,7 +94,7 @@ $image-height: calc(100vw * (282/1280));
     width: $image-width;
     height: $image-height;
     // 親要素の左右中央に配置
-    position: absolute;
+    position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(calc(-1vw - #{$image-width}/2), calc(-2vw - #{$image-height}/2));
@@ -93,26 +104,22 @@ $image-height: calc(100vw * (282/1280));
 }
 
 .virtualScrollContainer {
-    height: calc(100vh + 100px); /* 仮想のスクロールエリアの高さを設定。 */
-    // &:hover {
-    //     background-color: red;
-    // }
-  width: 100%;
+  height: 2000vh;
   overflow-y: scroll;
   position: relative;
   z-index: 1000;
 }
 
 .featured {
-    position: absolute;
-    // bottom: -150px;
-    right: 0;
+    position: fixed;
+    bottom: -90px;
+    // right: 0;
     left: 0;
     // overflow: hidden; // 縦方向のスクロールを防ぐため
 
     .featured__title {
         position: absolute;
-        bottom: 80px;
+        bottom: 140px;
         left: 40px;
         font-size: 40px;
         text-align: right;
@@ -120,16 +127,22 @@ $image-height: calc(100vw * (282/1280));
         line-height: 98%; /* 40.023px */
         letter-spacing: -0.817px;
         margin-right: 54px;
+        z-index: 1;
+        .featured__title__arrow {
+            display: block;
+            position: absolute;
+            bottom: -30px;
+            right: 0;
+            background-image: url('/images/featured_number.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            width: 74px;
+            height: 25px;
+        }
     }
     .featured__list {
-        // display: flex;
-        // flex-direction: row;
-        // align-items: flex-end;
-        // justify-content: flex-start;
-        width: 100%;
-        // overflow-x: scroll;
-        // overflow-y: hidden;
         scrollbar-width: none; // Firefox
+        padding-left: 260px;
         &::-webkit-scrollbar {
             display: none; // Chrome, Safari, Edge
         }
@@ -138,12 +151,6 @@ $image-height: calc(100vw * (282/1280));
             flex-direction: row;
             align-items: flex-end;
             justify-content: flex-start;
-            width: 100%;
-            // padding-left: 260px;
-            position: fixed;
-            left: 260px;
-            bottom: -70px;
-            right: 0;
             z-index: 0;
         }
         .featured__item {

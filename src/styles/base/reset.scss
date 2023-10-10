@@ -63,3 +63,12 @@ a {
 //   overflow: hidden;
 //   height: 100%;
 // }
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    -ms-overflow-style: none;  /* IEとEdge用 */
+    scrollbar-width: none;  /* Firefox用 */
+}
