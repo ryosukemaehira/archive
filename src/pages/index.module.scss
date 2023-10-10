@@ -107,7 +107,7 @@ $image-height: calc(100vw * (282/1280));
   height: 2000vh;
   overflow-y: scroll;
   position: relative;
-  z-index: 1000;
+  z-index: 1;
 }
 
 .featured {
@@ -171,4 +171,12 @@ $image-height: calc(100vw * (282/1280));
             }
         }
     }
+}
+
+.container__graffitiFooter {
+    position: fixed;
+    z-index: 0;
+    bottom: -8vw;
+    right: 0;
+    width: 50vw;
 }

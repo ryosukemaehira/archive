@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from './index.module.scss'
 import Link from 'next/link'
 import { artPieces } from '../utils/artData'
 
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import LottieAnimation from '@/components/graffiti';
 
+import { gsap } from 'gsap';
+import lottie from 'lottie-web';
+
+interface Props {
+  delay: number;      // 再生開始までの遅延時間（ミリ秒）
+  loopInterval?: number; // ループの間隔（ミリ秒）
+}
 
 export default function Home() {
 
@@ -165,6 +171,9 @@ export default function Home() {
                   </div>
                 </div>
               </section>
+            </div>
+            <div className={styles.container__graffitiFooter}>
+              <LottieAnimation delay={1000} loopInterval={500} />
             </div>
           </div>
         </div>
