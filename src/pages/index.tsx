@@ -46,14 +46,19 @@ export default function Home() {
         
         // listの拡大アニメーション
         const scaleValue = 1 + (0.2 * (sectionMoveDistance / 120)); // 1から1.5のスケールに変化
-        gsap.to(list, {
-            scale: scaleValue,
-            transformOrigin: "left bottom",
-            ease: "power2.out",
-        });
+        if(list) {
+          gsap.to(list, {
+              scale: scaleValue,
+              transformOrigin: "left bottom",
+              ease: "power2.out",
+          });
+        }
         
         // listの水平移動アニメーション
-        const maxListMoveDistance = (list.offsetWidth * scaleValue) - window.innerWidth + 260; // 拡大後の横幅を考慮
+        const maxListMoveDistance = list?.offsetWidth 
+        ? (list.offsetWidth * scaleValue) - window.innerWidth + 260
+        : 0;  // または他のデフォルト値
+
         const listMoveDistance = Math.min(scrollY * 0.3, maxListMoveDistance);
         gsap.to(list, {
           x: -listMoveDistance,
