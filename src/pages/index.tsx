@@ -67,16 +67,18 @@ export default function Home() {
         
         // 必要なスクロール量を動的に再計算
         const requiredScrollAmount = (maxListMoveDistance + 1) * 3.3333 + window.innerWidth / 2;
-        document.querySelector('.js-virtualScrollContainer').style.height = `${requiredScrollAmount}px`;
-      });
+        const container = document.querySelector('.js-virtualScrollContainer');
+        if (container instanceof HTMLElement) {
+            container.style.height = `${requiredScrollAmount}px`;
+        }
+    });
 
     return () => {
-        // イベントリスナーを削除
-        window.removeEventListener("scroll", handleScroll);
+        window.removeEventListener("scroll", () => {});
     };
-}, []);
+  }, []);
 
-  function getAspectRatioClass(aspectRatio) {
+  function getAspectRatioClass(aspectRatio: '1:1' | '4:3' | '16:9' | '2.35:1' | '3:4' | '9:16'): string {
     switch (aspectRatio) {
       case '1:1':
         return 'aspect-ratio-1-1';
