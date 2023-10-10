@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import lottie from 'lottie-web';
+import { AnimationItem } from 'lottie-web';
+
 
 interface Props {
     delay: number;      // 再生開始までの遅延時間（ミリ秒）
@@ -8,7 +9,7 @@ interface Props {
 
 const LottieAnimationFooter: React.FC<Props> = ({ delay, loopInterval = 0 }) => {
     const containerRef = useRef(null);
-    const [animation, setAnimation] = useState<lottie.WebAnimation | null>(null);
+    const [animation, setAnimation] = useState<AnimationItem | null>(null);
 
     useEffect(() => {
         if (!containerRef.current) return;
