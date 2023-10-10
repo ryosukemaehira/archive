@@ -3,20 +3,11 @@
 
 
 .container {
-    // position: fixed;
-    top: 0;
-    left: 0;
+    position: relative;
     height: 100vh;
     width: 100vw;
     box-sizing: border-box;
     padding: 20px;
-    // z-index: 0;
-}
-
-.container__inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
 }
 
 .container__bg {
@@ -61,6 +52,7 @@
         flex-direction: row;
         justify-content: start;
         align-items: start;
+        margin-top: 8px;
         font-size: 10px;
         line-height: 105%;
         font-family: 'Karma', serif;
@@ -77,6 +69,26 @@
 }
 $image-width: calc(100vw * (762/1280));
 $image-height: calc(100vw * (282/1280));
+
+.nav {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: start;
+    margin-top: -7px;
+}
+
+.nav__submit {
+    background-color: #000;
+    color: #fff;
+    width: 88px;
+    height: 40px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
 
 .copy {
     position: fixed;
@@ -113,9 +125,7 @@ $image-height: calc(100vw * (282/1280));
 .featured {
     position: fixed;
     bottom: -90px;
-    // right: 0;
     left: 0;
-    // overflow: hidden; // 縦方向のスクロールを防ぐため
 
     .featured__title {
         position: absolute;

@@ -37,7 +37,6 @@ export default function Home() {
           ease: "power2.out",
         });
         
-        // const opacityValue = 1 - (0.4 * (sectionMoveDistance / 120)); // 1から0.6のオパシティに変化
         const titleScaleValue = 1 - (0.1 * (sectionMoveDistance / 120)); // 1から0.8のスケールに変化
         gsap.to(titleRef.current, {
           // opacity: opacityValue,
@@ -63,7 +62,7 @@ export default function Home() {
         
         // 必要なスクロール量を動的に再計算
         const requiredScrollAmount = (maxListMoveDistance + 1) * 3.3333 + window.innerWidth / 2;
-        document.querySelector('.virtualScrollContainer').style.height = `${requiredScrollAmount}px`;
+        document.querySelector('.js-virtualScrollContainer').style.height = `${requiredScrollAmount}px`;
       });
 
     return () => {
@@ -104,81 +103,79 @@ export default function Home() {
         <div className={`${styles.container} js-container`}>
           <div className={styles.container__bg}
           ></div>
-          <div className={styles.container__inner}>
-            <header className={styles.header}>
-              <div className={styles.logo}>
-                <Image src="/images/logo.svg" alt="logo" width={170} height={22.5} />
-              </div>
-              <div className={styles.header__right}>
-                <p className={styles.description}>
-                  <span className={styles.description__title}>About this site</span>
-                  <span className={styles.description__text}>
-                    Murals, graffiti, and sculptures. <br />
-                    Montreal is filled with various street art<br />
-                    (whether legally or not).<br />
-                    Some of those art pieces<br />
-                    have existed for more than 10 years,<br />
-                    while others are removed or overwritten<br />
-                    in a few months.<br />
-                    This Website is a digital archive<br />
-                    of those ever-changing artworks.
-                  </span>
-                </p>
-                <nav className={styles.nav}>
-                  <Link href="/index" className={styles.nav__link}>Index
-                  </Link>
-                  <Link href="/index" className={styles.nav__link}>Submit
-                  </Link>
-                </nav>
+          <header className={styles.header}>
+            <div className={styles.logo}>
+              <Image src="/images/logo.svg" alt="logo" width={170} height={22.5} />
+            </div>
+            <div className={styles.header__right}>
+              <p className={styles.description}>
+                <span className={styles.description__title}>About this site</span>
+                <span className={styles.description__text}>
+                  Murals, graffiti, and sculptures. <br />
+                  Montreal is filled with various street art<br />
+                  (whether legally or not).<br />
+                  Some of those art pieces<br />
+                  have existed for more than 10 years,<br />
+                  while others are removed or overwritten<br />
+                  in a few months.<br />
+                  This Website is a digital archive<br />
+                  of those ever-changing artworks.
+                </span>
+              </p>
+              <nav className={styles.nav}>
+                <Link href="/index" className={styles.nav__link}>Index
+                </Link>
+                <Link href="/index" className={styles.nav__submit}>Submit
+                </Link>
+              </nav>
 
-              </div>
-            </header>
-            <h1 className={styles.title} ref={titleRef}>
-              <Image src="/images/title.svg" alt="title" width={1200} height={500} />
-            </h1>
-            <p className={styles.copy}>
-              <span className={styles.copy__text}>version: 0.1.0 (beta)</span>
-              <br />
-              <span className={styles.copy__text}>last-updated: 12st, Oct 2023</span>
-              <br />
-              <span className={styles.copy__text}>©DigitalArchiveofStreatArtinMontreal</span>
-            </p>
-            <div className={`${styles.virtualScrollContainer} virtualScrollContainer`}>
-              <section className={`${styles.featured} .section`} ref={sectionRef}>
-                <h2 className={styles.featured__title}>
-                  Featured<br />Pieces
-                  <span className={styles.featured__title__arrow}></span>
-                </h2>
-                <div className={`${styles.featured__list} js-scroll-list`}>
-                  <div className={`${styles.featured__list__inner} list`} ref={listRef}>
-                    {artPieces.map((artPiece, index) => {
-                      const aspectRatioClass = getAspectRatioClass(artPiece.aspectRatio[0]);
-                      return (
-                        <div className={`${styles.featured__item} item`} key={artPiece.id}>
-                          <div
-                            className={`${styles.featured__item__image} item__imageContainer ${aspectRatioClass}`}
-                          >
-                            <Image
-                              src={artPiece.image[0]}
-                              alt="artPiece"
-                              width={800}
-                              height={800}
-                            />
-                          </div>
-                          <div className={styles.featured__item__text}>
-                            <p className={styles.featured__item__type}>{artPiece.type}</p>
-                            <p className={styles.featured__item__place}>{artPiece.neightborhood}</p>
-                          </div>
+            </div>
+          </header>
+          <h1 className={styles.title} ref={titleRef}>
+            <Image src="/images/title.svg" alt="title" width={1200} height={500} />
+          </h1>
+          <p className={styles.copy}>
+            <span className={styles.copy__text}>version: 0.1.0 (beta)</span>
+            <br />
+            <span className={styles.copy__text}>last-updated: 12st, Oct 2023</span>
+            <br />
+            <span className={styles.copy__text}>©DigitalArchiveofStreatArtinMontreal</span>
+          </p>
+          <div className={`${styles.virtualScrollContainer} js-virtualScrollContainer`}>
+            <section className={`${styles.featured}`} ref={sectionRef}>
+              <h2 className={styles.featured__title}>
+                Featured<br />Pieces
+                <span className={styles.featured__title__arrow}></span>
+              </h2>
+              <div className={`${styles.featured__list}`}>
+                <div className={`${styles.featured__list__inner}`} ref={listRef}>
+                  {artPieces.map((artPiece, index) => {
+                    const aspectRatioClass = getAspectRatioClass(artPiece.aspectRatio[0]);
+                    return (
+                      <div className={`${styles.featured__item}`} key={artPiece.id}>
+                        <div
+                          className={`${styles.featured__item__image} item__imageContainer ${aspectRatioClass}`}
+                        >
+                          <Image
+                            src={artPiece.image[0]}
+                            alt="artPiece"
+                            width={800}
+                            height={800}
+                          />
                         </div>
-                      );
-                    })}
-                  </div>
+                        <div className={styles.featured__item__text}>
+                          <p className={styles.featured__item__type}>{artPiece.type}</p>
+                          <p className={styles.featured__item__place}>{artPiece.neightborhood}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-              </section>
-            </div>
-            <div className={styles.container__graffitiFooter}>
-              <LottieAnimation delay={1000} loopInterval={500} />
-            </div>
+              </div>
+            </section>
+          </div>
+          <div className={styles.container__graffitiFooter}>
+            <LottieAnimation delay={1000} loopInterval={500} />
           </div>
         </div>
       </main>
