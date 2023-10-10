@@ -175,8 +175,8 @@ $image-height: calc(100vw * (282/1280));
 
 .container__graffitiFooter {
     position: fixed;
-    z-index: 0;
-    bottom: -8vw;
-    right: 0;
+    z-index: 1;
+    bottom: -10vw;
+    right: -3vw;
     width: 50vw;
 }
