@@ -19,7 +19,7 @@ export default function Home() {
 
   // 要素の参照を作成
   const sectionRef = useRef(null);
-  const listRef = useRef<HTMLElement | null>(null);
+  const listRef = useRef<HTMLDivElement | null>(null);
   const titleRef = useRef(null);
 
   useEffect(() => {
