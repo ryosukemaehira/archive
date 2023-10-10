@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+import lottie from 'lottie-web';
 import { AnimationItem } from 'lottie-web';
-
 
 interface Props {
     delay: number;      // 再生開始までの遅延時間（ミリ秒）
