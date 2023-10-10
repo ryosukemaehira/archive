@@ -29,22 +29,22 @@ export default function Home() {
     // ウィンドウがスクロールされたときのイベントリスナーを追加
     window.addEventListener("scroll", () => {
         const scrollY = window.scrollY;
-
+        
         // sectionのアニメーション
         const sectionMoveDistance = Math.min(scrollY * 0.2, 120);
         gsap.to(section, {
-            y: -sectionMoveDistance,
-            ease: "power2.out",
+          y: -sectionMoveDistance,
+          ease: "power2.out",
         });
-
+        
         // const opacityValue = 1 - (0.4 * (sectionMoveDistance / 120)); // 1から0.6のオパシティに変化
         const titleScaleValue = 1 - (0.1 * (sectionMoveDistance / 120)); // 1から0.8のスケールに変化
         gsap.to(titleRef.current, {
-            // opacity: opacityValue,
-            scale: titleScaleValue,
-            ease: "power2.out",
+          // opacity: opacityValue,
+          scale: titleScaleValue,
+          ease: "power2.out",
         });
-
+        
         // listの拡大アニメーション
         const scaleValue = 1 + (0.2 * (sectionMoveDistance / 120)); // 1から1.5のスケールに変化
         gsap.to(list, {
@@ -52,15 +52,19 @@ export default function Home() {
             transformOrigin: "left bottom",
             ease: "power2.out",
         });
-
+        
         // listの水平移動アニメーション
         const maxListMoveDistance = (list.offsetWidth * scaleValue) - window.innerWidth + 260; // 拡大後の横幅を考慮
         const listMoveDistance = Math.min(scrollY * 0.3, maxListMoveDistance);
         gsap.to(list, {
-            x: -listMoveDistance,
-            ease: "power2.out",
+          x: -listMoveDistance,
+          ease: "power2.out",
         });
-    });
+        
+        // 必要なスクロール量を動的に再計算
+        const requiredScrollAmount = (maxListMoveDistance + 1) * 3.3333 + window.innerWidth / 2;
+        document.querySelector('.virtualScrollContainer').style.height = `${requiredScrollAmount}px`;
+      });
 
     return () => {
         // イベントリスナーを削除
@@ -139,7 +143,7 @@ export default function Home() {
               <br />
               <span className={styles.copy__text}>©DigitalArchiveofStreatArtinMontreal</span>
             </p>
-            <div className={styles.virtualScrollContainer}>
+            <div className={`${styles.virtualScrollContainer} virtualScrollContainer`}>
               <section className={`${styles.featured} .section`} ref={sectionRef}>
                 <h2 className={styles.featured__title}>
                   Featured<br />Pieces
