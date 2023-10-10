@@ -8,7 +8,7 @@ interface Props {
 
 const LottieAnimationFooter: React.FC<Props> = ({ delay, loopInterval = 0 }) => {
     const containerRef = useRef(null);
-    const [animation, setAnimation] = useState<lottie.AnimationItem | null>(null);
+    const [animation, setAnimation] = useState<lottie.WebAnimation | null>(null);
 
     useEffect(() => {
         if (!containerRef.current) return;
@@ -28,7 +28,7 @@ const LottieAnimationFooter: React.FC<Props> = ({ delay, loopInterval = 0 }) => 
         }, delay);
 
         return () => clearTimeout(timeoutId);
-    }, [containerRef]);
+    }, [containerRef, delay]);
 
     useEffect(() => {
         if (animation) {
