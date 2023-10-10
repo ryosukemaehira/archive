@@ -33,13 +33,20 @@ const LottieAnimationFooter: React.FC<Props> = ({ delay, loopInterval = 0 }) => 
 
     useEffect(() => {
         if (animation) {
-            animation.onLoopComplete = () => {
+            const handleLoopComplete = () => {
                 if (loopInterval > 0) {
                     animation.stop();
                     setTimeout(() => {
                         animation.play();
                     }, loopInterval);
                 }
+            };
+            
+            animation.addEventListener('loopComplete', handleLoopComplete);
+    
+            // イベントリスナーのクリーンアップ
+            return () => {
+                animation.removeEventListener('loopComplete', handleLoopComplete);
             };
         }
     }, [animation, loopInterval]);
