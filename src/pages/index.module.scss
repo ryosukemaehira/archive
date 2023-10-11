@@ -191,3 +191,18 @@ $image-height: calc(100vw * (282/1280));
     right: -3vw;
     width: 50vw;
 }
+
+.container__graffitiHeader {
+    position: fixed;
+    z-index: 1;
+    top: -9vw;
+    left: -3vw;
+    width: 50vw;
+}
+.container__graffitiHeader2 {
+    position: fixed;
+    z-index: 0;
+    bottom: -3vw;
+    left: -2vw;
+    width: 40vw;
+}
