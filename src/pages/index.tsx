@@ -182,7 +182,7 @@ export default function Home() {
             </section>
           </div>
           <div className={styles.container__graffitiFooter}>
-            <LottieAnimation delay={1000} loopInterval={500} />
+            <LottieAnimation delay={1000} loopInterval={8000} path="/animations/graffiti_footer_full.json" />
           </div>
         </div>
       </main>

@@ -5,9 +5,10 @@ import { AnimationItem } from 'lottie-web';
 interface Props {
     delay: number;      // 再生開始までの遅延時間（ミリ秒）
     loopInterval?: number; // ループの間隔（ミリ秒）
+    path: string;
 }
 
-const LottieAnimationFooter: React.FC<Props> = ({ delay, loopInterval = 0 }) => {
+const LottieAnimationFooter: React.FC<Props> = ({ delay, loopInterval = 0, path }) => {
     const containerRef = useRef(null);
     const [animation, setAnimation] = useState<AnimationItem | null>(null);
 
@@ -19,7 +20,7 @@ const LottieAnimationFooter: React.FC<Props> = ({ delay, loopInterval = 0 }) => 
             renderer: 'svg',
             loop: true,
             autoplay: false,
-            path: '/animations/graffiti_footer_full.json'
+            path: path,
         });
 
         setAnimation(anim);
