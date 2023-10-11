@@ -195,14 +195,14 @@ $image-height: calc(100vw * (282/1280));
 .container__graffitiHeader {
     position: fixed;
     z-index: 1;
-    top: -9vw;
-    left: -3vw;
-    width: 50vw;
+    top: -9.5vw;
+    left: -7vw;
+    width: 45vw;
 }
 .container__graffitiHeader2 {
     position: fixed;
     z-index: 0;
     bottom: -3vw;
-    left: -2vw;
+    left: -3vw;
     width: 40vw;
 }

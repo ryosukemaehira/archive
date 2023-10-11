@@ -182,13 +182,13 @@ export default function Home() {
             </section>
           </div>
           <div className={styles.container__graffitiHeader}>
-            <LottieAnimation delay={5500} loopInterval={6000} path="/animations/graffiti_header_full.json" />
+            <LottieAnimation delay={8500} loopInterval={22000} path="/animations/graffiti_header_full.json" />
           </div>
           <div className={styles.container__graffitiFooter}>
-            <LottieAnimation delay={1000} loopInterval={8000} path="/animations/graffiti_footer_full.json" />
+            <LottieAnimation delay={2000} loopInterval={22000} path="/animations/graffiti_footer_full.json" />
           </div>
           <div className={styles.container__graffitiHeader2}>
-            <LottieAnimation delay={15000} loopInterval={4000} path="/animations/graffiti_header_full.json" />
+            <LottieAnimation delay={18000} loopInterval={23000} path="/animations/graffiti_header_full.json" />
           </div>
         </div>
       </main>
