@@ -78,7 +78,7 @@ export default function Home() {
     };
   }, []);
 
-  function getAspectRatioClass(aspectRatio: '1:1' | '4:3' | '16:9' | '2.35:1' | '3:4' | '9:16'): string {
+  function getAspectRatioClass(aspectRatio: string): string {
     switch (aspectRatio) {
       case '1:1':
         return 'aspect-ratio-1-1';
