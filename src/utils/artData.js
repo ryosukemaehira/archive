@@ -5,7 +5,7 @@
 const tagData = [
     {
         id: 1,
-        name: 'mural',
+        name: 'Graffiti',
     },
     {
         id: 2,
@@ -43,12 +43,12 @@ const artPieces = [
     {
         id: 1,
         name: 'The Kiss',
-        neightborhood: 'Friedrichshain',
+        neightborhood: 'Little Portugal',
         image: [
             '/images/sample/mm_01_1-1.jpg',
         ],
         aspectRatio: ['1:1', '4:3', '指定なし'], 
-        type: 'mural',
+        type: 'Graffiti',
         tags: [1],
         lat: 52.515,
         lng: 13.454,
@@ -56,12 +56,12 @@ const artPieces = [
     {
         id: 2,
         name: 'The Kiss',
-        neightborhood: 'Friedrichshain',
+        neightborhood: 'Little Portugal',
         image: [
             '/images/sample/mm_02_235-1.jpg',
         ],
         aspectRatio: ['2.35:1', '4:3'], 
-        type: 'mural',
+        type: 'Graffiti',
         tags: [1],
         lat: 52.515,
         lng: 13.454,
@@ -69,12 +69,12 @@ const artPieces = [
     {
         id: 3,
         name: 'painting',
-        neightborhood: 'Friedrichshain',
+        neightborhood: 'Plateau',
         image: [
             '/images/sample/mm_03_16-9.jpg',
         ],
         aspectRatio: ['16:9', '4:3', '指定なし'], 
-        type: 'mural',
+        type: 'Industrial',
         tags: [2],
         lat: 52.515,
         lng: 13.454,
@@ -82,12 +82,12 @@ const artPieces = [
     {
         id: 4,
         name: 'painting',
-        neightborhood: 'Friedrichshain',
+        neightborhood: 'Plateau',
         image: [
             '/images/sample/mm_04_9-16.jpg',
         ],
         aspectRatio: ['9:16', '4:3', '指定なし'], 
-        type: 'mural',
+        type: 'Mashup',
         tags: [2],
         lat: 52.515,
         lng: 13.454,
@@ -95,12 +95,12 @@ const artPieces = [
     {
         id: 5,
         name: 'painting',
-        neightborhood: 'Friedrichshain',
+        neightborhood: 'Little Portugal',
         image: [
             '/images/sample/mm_05_1-1.jpg',
         ],
         aspectRatio: ['1:1', '4:3', '指定なし'], 
-        type: 'mural',
+        type: 'Mashup',
         tags: [2],
         lat: 52.515,
         lng: 13.454,
@@ -108,12 +108,12 @@ const artPieces = [
     {
         id: 6,
         name: 'painting',
-        neightborhood: 'Friedrichshain',
+        neightborhood: 'Little Portugal',
         image: [
             '/images/sample/mm_06_3-4.jpg',
         ],
         aspectRatio: ['3:4', '4:3', '指定なし'], 
-        type: 'mural',
+        type: 'Mural',
         tags: [2],
         lat: 52.515,
         lng: 13.454,
@@ -121,12 +121,12 @@ const artPieces = [
     {
         id: 7,
         name: 'painting',
-        neightborhood: 'Friedrichshain',
+        neightborhood: 'Little Portugal',
         image: [
             '/images/sample/mm_07_16-9.jpg',
         ],
         aspectRatio: ['16:9', '4:3', '指定なし'], 
-        type: 'mural',
+        type: 'Graffiti',
         tags: [2],
         lat: 52.515,
         lng: 13.454,
@@ -134,12 +134,12 @@ const artPieces = [
     {
         id: 8,
         name: 'painting',
-        neightborhood: 'Friedrichshain',
+        neightborhood: 'Little Portugal',
         image: [
             '/images/sample/mm_08_4-3.jpg',
         ],
         aspectRatio: ['4:3', '4:3', '指定なし'], 
-        type: 'mural',
+        type: 'Graffiti',
         tags: [2],
         lat: 52.515,
         lng: 13.454,
@@ -147,12 +147,12 @@ const artPieces = [
     {
         id: 9,
         name: 'painting',
-        neightborhood: 'Friedrichshain',
+        neightborhood: 'Place des Arts',
         image: [
             '/images/sample/mm_09_1-1.jpg',
         ],
         aspectRatio: ['1:1', '4:3', '指定なし'], 
-        type: 'mural',
+        type: 'Mural',
         tags: [2],
         lat: 52.515,
         lng: 13.454,
@@ -160,12 +160,12 @@ const artPieces = [
     {
         id: 10,
         name: 'painting',
-        neightborhood: 'Friedrichshain',
+        neightborhood: 'Little Portugal',
         image: [
             '/images/sample/mm_10_16-9.jpg',
         ],
         aspectRatio: ['16:9', '4:3', '指定なし'], 
-        type: 'mural',
+        type: 'Mural',
         tags: [2],
         lat: 52.515,
         lng: 13.454,
@@ -173,12 +173,12 @@ const artPieces = [
     {
         id: 11,
         name: 'painting',
-        neightborhood: 'Friedrichshain',
+        neightborhood: 'Place des Arts',
         image: [
             '/images/sample/mm_11_4-3.jpg',
         ],
         aspectRatio: ['4:3', '4:3', '指定なし'], 
-        type: 'mural',
+        type: 'Mashup',
         tags: [2],
         lat: 52.515,
         lng: 13.454,
@@ -191,7 +191,7 @@ const artPieces = [
             '/images/sample/mm_12_16-9.jpg',
         ],
         aspectRatio: ['16:9', '4:3', '指定なし'], 
-        type: 'mural',
+        type: 'Graffiti',
         tags: [2],
         lat: 52.515,
         lng: 13.454,
@@ -199,12 +199,12 @@ const artPieces = [
     {
         id: 13,
         name: 'painting',
-        neightborhood: 'Friedrichshain',
+        neightborhood: 'Mont Royal',
         image: [
             '/images/sample/mm_13_3-4.jpg',
         ],
         aspectRatio: ['3:4', '4:3', '指定なし'], 
-        type: 'mural',
+        type: 'Mural',
         tags: [2],
         lat: 52.515,
         lng: 13.454,

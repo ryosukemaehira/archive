@@ -130,9 +130,9 @@ export default function Home() {
                 </span>
               </p>
               <nav className={styles.nav}>
-                <Link href="/index" className={styles.nav__link}>Index
+                <Link href="/#" className={styles.nav__link}>Index
                 </Link>
-                <Link href="/index" className={styles.nav__submit}>Submit
+                <Link href="/#" className={styles.nav__submit}>Submit
                 </Link>
               </nav>
 

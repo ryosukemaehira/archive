@@ -175,6 +175,7 @@ $image-height: calc(100vw * (282/1280));
                 left: calc(100% + 2em);
                 transform-origin: 0 0; /* 右上を回転軸とする */
                 transform: rotate(90deg) translateY(-5px); /* 90度時計回りに回転 */
+                width: 100%;
                 line-height: 1em;
                 font-size: 11px;
                 font-weight: 600;
