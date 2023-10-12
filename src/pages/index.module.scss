@@ -127,7 +127,6 @@ $image-height: calc(100vw * (282/1280));
 .title {
     width: $image-width;
     height: $image-height;
-    // 親要素の左右中央に配置
     position: fixed;
     left: 50%;
     top: 50%;
