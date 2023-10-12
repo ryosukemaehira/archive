@@ -18,15 +18,37 @@ interface Props {
 export default function Home() {
 
   // 要素の参照を作成
+  const isMobileOrTablet = () => {
+    return window.innerWidth <= 768;  // 768pxをブレークポイントとして使用
+  };
   const sectionRef = useRef(null);
   const listRef = useRef<HTMLDivElement | null>(null);
   const titleRef = useRef(null);
 
   useEffect(() => {
+    let mobileOrTablet = isMobileOrTablet();
+    if (mobileOrTablet) return;
+
     const section = sectionRef.current;
     const list = listRef.current;
 
-    // ウィンドウがスクロールされたときのイベントリスナーを追加
+    const handleResize = () => {
+      if (isMobileOrTablet() !== mobileOrTablet) {
+          mobileOrTablet = isMobileOrTablet();
+          if (mobileOrTablet) {
+              // タブレットまたはモバイルになった場合の処理
+              // 例: スクロールイベントリスナーを削除
+              window.removeEventListener("scroll", handleScroll);
+          } else {
+              // デスクトップになった場合の処理
+              // 例: スクロールイベントリスナーを再追加
+              window.addEventListener("scroll", handleScroll);
+          }
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
     window.addEventListener("scroll", () => {
         const scrollY = window.scrollY;
         
@@ -56,7 +78,7 @@ export default function Home() {
         
         // listの水平移動アニメーション
         const maxListMoveDistance = list?.offsetWidth 
-        ? (list.offsetWidth * scaleValue) - window.innerWidth + 260
+        ? (list.offsetWidth * scaleValue) - window.innerWidth + 100
         : 0;  // または他のデフォルト値
 
         const listMoveDistance = Math.min(scrollY * 0.3, maxListMoveDistance);
@@ -74,6 +96,7 @@ export default function Home() {
     });
 
     return () => {
+        window.removeEventListener("resize", handleResize);
         window.removeEventListener("scroll", () => {});
     };
   }, []);
@@ -139,7 +162,13 @@ export default function Home() {
             </div>
           </header>
           <h1 className={styles.title} ref={titleRef}>
-            <Image src="/images/title.svg" alt="title" width={1200} height={500} />
+          {/* <h1 className={styles.title}> */}
+            <div className="l-hide-sm">
+              <Image src="/images/title.svg" alt="title" width={1200} height={500} />
+            </div>
+            <div className="l-show-sm">
+              <Image src="/images/sp/title.png" alt="title" width={1200} height={500} />
+            </div>
           </h1>
           <p className={styles.copy}>
             <span className={styles.copy__text}>version: 0.1.0 (beta)</span>
@@ -150,6 +179,7 @@ export default function Home() {
           </p>
           <div className={`${styles.virtualScrollContainer} js-virtualScrollContainer`}>
             <section className={`${styles.featured}`} ref={sectionRef}>
+            {/* <section className={`${styles.featured}`}> */}
               <h2 className={styles.featured__title}>
                 Featured<br />Pieces
                 <span className={styles.featured__title__arrow}></span>

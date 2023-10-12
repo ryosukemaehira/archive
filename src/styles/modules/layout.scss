@@ -1,3 +1,4 @@
+@import '@/styles/base/breakpoints.scss';
 @import '@/styles/base/settings.scss';
 
 /* アスペクト比 1:1 */
@@ -112,4 +113,30 @@ $scale: 1.1;
 .item__imageContainer.aspect-ratio-9-16  {
     width: calc(161/1280 * 100vw * #{$scale});
     // width: 161px;
+}
+
+@include mq-down(sm) {
+    .item__imageContainer.aspect-ratio-1-1 {width: 196px;}
+    .item__imageContainer.aspect-ratio-4-3 {width: 225px;}
+    .item__imageContainer.aspect-ratio-16-9 {width: 260px;}
+    .item__imageContainer.aspect-ratio-235-1 {width: 300px;}
+    
+}
+
+.l-show-sm {
+    display: none!important;
+  }
+  
+  .l-hide-sm {
+    display: block!important;
+  }
+  
+  @include mq-down(sm) {
+    .l-show-sm {
+        display: block!important;
+    }
+    .l-hide-sm {
+        display: none!important;
+    }
+    
 }
