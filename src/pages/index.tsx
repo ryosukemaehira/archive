@@ -60,7 +60,7 @@ export default function Home() {
         
         // listの水平移動アニメーション
         const maxListMoveDistance = list?.offsetWidth 
-        ? (list.offsetWidth * scaleValue) - window.innerWidth + 100
+        ? (list.offsetWidth * scaleValue) - window.innerWidth + 260
         : 0;  // または他のデフォルト値
 
         const listMoveDistance = Math.min(scrollY * 0.3, maxListMoveDistance);
