@@ -32,23 +32,6 @@ export default function Home() {
     const section = sectionRef.current;
     const list = listRef.current;
 
-    const handleResize = () => {
-      if (isMobileOrTablet() !== mobileOrTablet) {
-          mobileOrTablet = isMobileOrTablet();
-          if (mobileOrTablet) {
-              // タブレットまたはモバイルになった場合の処理
-              // 例: スクロールイベントリスナーを削除
-              window.removeEventListener("scroll", handleScroll);
-          } else {
-              // デスクトップになった場合の処理
-              // 例: スクロールイベントリスナーを再追加
-              window.addEventListener("scroll", handleScroll);
-          }
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-
     window.addEventListener("scroll", () => {
         const scrollY = window.scrollY;
         
@@ -96,7 +79,6 @@ export default function Home() {
     });
 
     return () => {
-        window.removeEventListener("resize", handleResize);
         window.removeEventListener("scroll", () => {});
     };
   }, []);
