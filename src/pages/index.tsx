@@ -136,7 +136,7 @@ export default function Home() {
               <nav className={styles.nav}>
                 <Link href="/#" className={styles.nav__link}>Index
                 </Link>
-                <Link href="/#" className={styles.nav__submit}>Submit
+                <Link href="/#" className={styles.nav__submit}>(coming soon)
                 </Link>
               </nav>
 
@@ -192,6 +192,10 @@ export default function Home() {
               </div>
             </section>
           </div>
+          {/* sp版でのみ表示するfooterと、その中に作品のsabmitボタンであるaタグを配置 */}
+          <footer className={`${styles.footerSp} show-sm`}>
+            <Link href="/#" className={styles.footerSp__submit}>(coming soon)</Link>
+          </footer>
           <div className={styles.container__graffitiHeader}>
             <LottieAnimation delay={8500} loopInterval={22000} path="/animations/graffiti_header_full.json" />
           </div>
