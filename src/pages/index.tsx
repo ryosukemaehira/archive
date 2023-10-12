@@ -8,7 +8,6 @@ import { artPieces } from '../utils/artData'
 import LottieAnimation from '@/components/graffiti';
 
 import { gsap } from 'gsap';
-import lottie from 'lottie-web';
 
 interface Props {
   delay: number;      // 再生開始までの遅延時間（ミリ秒）
